@@ -1,5 +1,7 @@
 
 //!EJERCICIO 1 
+console.log("\n --------------------------------------------------Ejercicio 1-------------------------------------------------- \n");
+
 const ArbolBinario = require("./BinaryTree/arbolfrutas"); // Asegúrate de la ruta correcta
 
 // 1. Crear el árbol y construir la estructura de decisiones
