@@ -73,7 +73,47 @@ router.post("/ClubAventurerosUnid", async (req, res)=>{
         id: resultado.insertedId
     });
 })
+
 //! Leer==================================================
+//Buscar Distrito
+router.get("/ClubAventurerosDist", async (req,res)=>{
+    const db = await createDB();
+    const Club = db.collection('Distritos');
+
+    const lista = await Club.find().toArray();
+
+    res.status(200).json(lista);    
+});
+
+//Buscar Club
+router.get("/ClubAventurerosClub", async (req,res)=>{
+    const db = await createDB();
+    const Club = db.collection('Clubes');
+
+    const lista = await Club.find().toArray();
+
+    res.status(200).json(lista);    
+});
+
+//Buscar Consejero
+router.get("/ClubAventurerosCons", async (req,res)=>{
+    const db = await createDB();
+    const Club = db.collection('Consejeros');
+
+    const lista = await Club.find().toArray();
+
+    res.status(200).json(lista);    
+});
+
+//Buscar Unidad
+router.get("/ClubAventurerosUnid", async (req,res)=>{
+    const db = await createDB();
+    const Club = db.collection('Unidades');
+
+    const lista = await Club.find().toArray();
+
+    res.status(200).json(lista);    
+});
 
 //todo Actualizar=========================================
 
