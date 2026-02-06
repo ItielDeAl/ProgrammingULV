@@ -13,9 +13,8 @@ COLOR_CONTENEDOR = 'white'
 COLOR_EXITO = '#FFC107' # Amarillo/Naranja para Riemann
 COLOR_ERROR = '#DC3545' 
 
-# --- LÓGICA MATEMÁTICA (MODELO) ---
+# --- LÓGICA MATEMÁTICA
 def calcular_integral_riemann_trapecio(funcion_str, a, b, m):
-    # Usaremos la lógica del Trapecio para ser consistente con el código anterior
     x = sp.symbols('x')
     f = sp.sympify(funcion_str)
     
@@ -28,13 +27,13 @@ def calcular_integral_riemann_trapecio(funcion_str, a, b, m):
     I_simbolica = sp.integrate(f, (x, a, b))
     exacta = float(I_simbolica.evalf())
 
-    # Cálculo Numérico (Regla del Trapecio / Aprox. por Riemann)
+    # Cálculo Numérico ( Aprox. por Riemann)
     h = (b - a) / m 
     x_values = np.linspace(a, b, m + 1)
     
     f_numerica = sp.lambdify(x, f, 'numpy') 
 
-    # Fórmula del Trapecio
+    # Fórmula de Riemann
     sumatoria = 2 * np.sum(f_numerica(x_values[1:-1]))
     integral_aprox = (h / 2) * (f_numerica(x_values[0]) + sumatoria + f_numerica(x_values[-1]))
     
@@ -44,7 +43,7 @@ def calcular_integral_riemann_trapecio(funcion_str, a, b, m):
     return exacta, integral_aprox, f_numerica, error_abs
 
 
-# --- APLICACIÓN TKINTER (VISTA Y CONTROLADOR) ---
+# --- APLICACIÓN TKINTER
 class SumaRimannApp:
     def __init__(self, master):
         # El master es ahora el frame central del MainMenuApp
