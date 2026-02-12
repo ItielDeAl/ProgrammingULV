@@ -6,29 +6,29 @@ const router = Router();
 
 //* Crear ================================================
 
-//Crear Club 
-router.post("/ClubAventurerosClub", async (req, res)=>{
+//Crear Actividades
+router.post("/ClubAventurerosActi", async (req, res)=>{
     const db = await createDB();
-    const club = db.collection('Clubes');
+    const club = db.collection('Actividades');
 
     //console.log(req);
     
-    const Club = req.body;
+    const Actividad = req.body;
 
-    const resultado = await club.insertOne(Club);
+    const resultado = await club.insertOne(Actividad);
 
     res.status(201).json({
-        message: "Club Creado",
+        message: "Actividad Creada",
         id: resultado.insertedId
     });
 })
 
 //! Leer==================================================
 
-//Buscar Club
-router.get("/ClubAventurerosClub", async (req,res)=>{
+//Buscar Actividad
+router.get("/ClubAventurerosActi", async (req,res)=>{
     const db = await createDB();
-    const Club = db.collection('Clubes');
+    const Club = db.collection('Actividades');
 
     const lista = await Club.find().toArray();
 

@@ -6,29 +6,28 @@ const router = Router();
 
 //* Crear ================================================
 
-//Crear Club 
-router.post("/ClubAventurerosClub", async (req, res)=>{
+//Crear distrito
+router.post("/ClubAventurerosDist", async (req, res)=>{
     const db = await createDB();
-    const club = db.collection('Clubes');
+    const club = db.collection('Distritos');
 
     //console.log(req);
     
-    const Club = req.body;
+    const distrito = req.body;
 
-    const resultado = await club.insertOne(Club);
+    const resultado = await club.insertOne(distrito);
 
     res.status(201).json({
-        message: "Club Creado",
+        message: "Distrito Creado",
         id: resultado.insertedId
     });
 })
 
 //! Leer==================================================
-
-//Buscar Club
-router.get("/ClubAventurerosClub", async (req,res)=>{
+//Buscar Distrito
+router.get("/ClubAventurerosDist", async (req,res)=>{
     const db = await createDB();
-    const Club = db.collection('Clubes');
+    const Club = db.collection('Distritos');
 
     const lista = await Club.find().toArray();
 
