@@ -25,46 +25,46 @@ La API fue probada utilizando **Postman** para verificar su correcto funcionamie
 - MongoDB (local o en MongoDB Atlas)
 - Postman (opcional para pruebas)
 
-### Endpoints
+# Endpoints
 
 Cada colección cuenta con los siguientes métodos:
 
-# Unión
+## Unión
 - GET /union
 - GET /union/:id
 - POST /union
 - PUT /union/:id
 - DELETE /union/:id
 
-# Asociación
+## Asociación
 - GET /asociacion
 - GET /asociacion/:id
 - POST /asociacion
 - PUT /asociacion/:id
 - DELETE /asociacion/:id
 
-# Distrito
+## Distrito
 - GET /distrito
 - GET /distrito/:id
 - POST /distrito
 - PUT /distrito/:id
 - DELETE /distrito/:id
 
-# Iglesia
+## Iglesia
 - GET /iglesia
 - GET /iglesia/:id
 - POST /iglesia
 - PUT /iglesia/:id
 - DELETE /iglesia/:id
 
-# Club
+## Club
 - GET /club
 - GET /club/:id
 - POST /club
 - PUT /club/:id
 - DELETE /club/:id
 
-## Pruebas
+# Pruebas
 
 Las pruebas de cada endpoint fueron realizadas utilizando Postman, verificando:
 
@@ -73,8 +73,8 @@ Las pruebas de cada endpoint fueron realizadas utilizando Postman, verificando:
 - Actualización
 - Eliminación
 
-### Objetivo del proyecto
+# Objetivo del proyecto
 Desarrollar una API estructurada y escalable que permita administrar digitalmente la organización de clubes adventistas, facilitando la gestión jerárquica y el control de información en cada nivel institucional.
 
-# Autor
+## Autor
 Alfred Itiel Delgadillo Alvarez
