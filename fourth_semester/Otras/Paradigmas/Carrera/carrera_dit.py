@@ -19,7 +19,7 @@ categorias = {
     }
 }
 
-medallas = 100
+medallas = 99
 
 
 # ===================== FUNCIONES =====================
@@ -89,10 +89,12 @@ def mostrar_menu_filtrado(precio_objetivo):
 
 def asignar_medalla():
     global medallas
-    if medallas > 0:
-        medallas -= 1
-        return "Ganó medalla"
-    return "Medallas agotadas"
+    medallas += 1  # Cada corredor inscrito aumenta el contador
+
+    if medallas <= 100:
+        return f"Gano medalla."
+    else:
+        return f"Medallas agotadas."
 
 
 # ===================== PROGRAMA PRINCIPAL =====================
@@ -136,7 +138,7 @@ if inscripcion == "P":
         print(e)
         sys.exit()
 
-    # 🔥 TARIFA ESPECIAL EN PAREJA
+    #TARIFA ESPECIAL EN PAREJA
     if precio == 50:
         pago_total = 80
     elif precio == 80:
