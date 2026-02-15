@@ -64,14 +64,46 @@ Cada colección cuenta con los siguientes métodos:
 - PUT /club/:id
 - DELETE /club/:id
 
-# Pruebas
 
+# Instalación y configuración
+- Clonar el repositorio:
+    git clone https://github.com/ItielDeAl/ProgrammingULV.git
+    cd fourth_semester/srcClub
+- Instalar dependencias:
+    npm install
+- Configurar la Base de Datos:
+    Asegúrate de tener instalado MongoDB localmente o utiliza una URI de MongoDB Atlas en tu archivo de conexión (index.js).
+- Iniciar el servidor:
+    node index.js
+        El servidor estará corriendo en http://localhost:3000.
+
+# Estructura de Datos (Modelos)
+    {
+        "_id": "ObjectId",
+        "nombre": "Club Aventureros UPERNIKAO",
+        "iglesia":"Central"
+        "capellan": "Juan Perez",
+        "director": "Maria Lopez",
+        "subdirector": "Carlos Gomez",
+        "secretario": "Ana Torres",
+        "tesorero": "Luis Ramirez",
+        "asesor": "Ana edith alvarez"
+        "distrito_id": "ObjectId"
+    }
+
+# Pruebas y Respuestas HTTP
 Las pruebas de cada endpoint fueron realizadas utilizando Postman, verificando:
 
 - Creación de registros
 - Consulta de datos
 - Actualización
 - Eliminación
+Codigos de estado:
+- 200 OK: Solicitud exitosa.
+- 201 Created: Registro creado con éxito.
+- 400 Bad Request: Error en los datos enviados.
+- 404 Not Found: El recurso solicitado no existe.
+- 500 Internal Server Error: Error en el servidor o conexión a la BD.
 
 # Objetivo del proyecto
 Desarrollar una API estructurada y escalable que permita administrar digitalmente la organización de clubes adventistas, facilitando la gestión jerárquica y el control de información en cada nivel institucional.
