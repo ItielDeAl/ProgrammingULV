@@ -98,7 +98,9 @@ Las pruebas de cada endpoint fueron realizadas utilizando Postman, verificando:
 - Consulta de datos
 - Actualización
 - Eliminación
+
 Codigos de estado:
+
 - 200 OK: Solicitud exitosa.
 - 201 Created: Registro creado con éxito.
 - 400 Bad Request: Error en los datos enviados.
