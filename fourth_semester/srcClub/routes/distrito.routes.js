@@ -34,8 +34,45 @@ router.get("/ClubAventurerosDist", async (req,res)=>{
     res.status(200).json(lista);    
 });
 
+// Buscar Dsitrido por ID
+router.get("/ClubAventurerosDist/:id", async (req,res)=>{
+    const db = await createDB();
+    const Club = db.collection('Distritos');
+    
+    const lista = await Club.findOne({ _id: new ObjectId(req.params.id) });
+
+    res.status(200).json(lista);    
+});
+
 //todo Actualizar=========================================
+//Actualizar
+router.put("/ClubAventurerosDist/:id", async (req,res)=>{
+    const db = await createDB();
+    const Club = db.collection('Distritos');
+    
+    const resultado = await Club.updateOne(
+        { _id: new ObjectId(req.params.id) },
+        { $set: req.body }
+    );
+    res.json({
+        message: "Distrito Actualizado",
+        modificados: resultado.modifiedCount
+    })
+
+});
 
 //? Eliminar =============================================
+router.delete("/ClubAventurerosDist/:id", async (req,res)=>{
+    const db = await createDB();
+    const Club = db.collection('Distritos');
+    
+    const resultado = await Club.deleteOne(
+        { _id: new ObjectId(req.params.id) });
+    
+        res.json({
+        message: "Distrito Eliminado",
+        modificados: resultado.deletedCount
+    })
 
+});
 export default router;

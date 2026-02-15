@@ -7,9 +7,9 @@ const router = Router();
 //* Crear ================================================
 
 //Crear Unidades
-router.post("/ClubAventurerosUnid", async (req, res)=>{
+router.post("/ClubAventurerosCons", async (req, res)=>{
     const db = await createDB();
-    const club = db.collection('Unidades');
+    const club = db.collection('Consejeros');
 
     //console.log(req);
     
@@ -18,7 +18,7 @@ router.post("/ClubAventurerosUnid", async (req, res)=>{
     const resultado = await club.insertOne(Unidad);
 
     res.status(201).json({
-        message: "Unidad Creada",
+        message: "Consejero Creado",
         id: resultado.insertedId
     });
 })
@@ -35,8 +35,45 @@ router.get("/ClubAventurerosCons", async (req,res)=>{
     res.status(200).json(lista);    
 });
 
+// Buscar Dsitrido por ID
+router.get("/ClubAventurerosCons/:id", async (req,res)=>{
+    const db = await createDB();
+    const Club = db.collection('Consejeros');
+    
+    const lista = await Club.findOne({ _id: new ObjectId(req.params.id) });
+
+    res.status(200).json(lista);    
+});
+
 //todo Actualizar=========================================
 
-//? Eliminar =============================================
+//Actualizar
+router.put("/ClubAventurerosCons/:id", async (req,res)=>{
+    const db = await createDB();
+    const Club = db.collection('Consejeros');
+    
+    const resultado = await Club.updateOne(
+        { _id: new ObjectId(req.params.id) },
+        { $set: req.body }
+    );
+    res.json({
+        message: "Consejero Actualizado",
+        modificados: resultado.modifiedCount
+    })
 
+});
+//? Eliminar =============================================
+router.delete("/ClubAventurerosCons/:id", async (req,res)=>{
+    const db = await createDB();
+    const Club = db.collection('Consejeros');
+    
+    const resultado = await Club.deleteOne(
+        { _id: new ObjectId(req.params.id) });
+    
+        res.json({
+        message: "Consejero Eliminado",
+        modificados: resultado.deletedCount
+    })
+
+});
 export default router;
