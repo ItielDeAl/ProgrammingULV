@@ -9,7 +9,7 @@ def imprimir_matriz(M):
 
 #! Solicitamos las dos Matrices a utilizar
 print(f'{"="*70}\n')
-print('Solucion de Ecuaciones lineales por el metodo de Gauss')
+print('Solucion de Ecuaciones lineales por el metodo de Gauss Jordan')
 
 #?Se utliza una libreria para convertirlo a una matriz 
 try:
@@ -54,7 +54,7 @@ for k in range(m):
 
     # Hacer ceros debajo del pivote
     for i in range(0, m):
-        if i > k:
+        if i!= k:
             factor = C[i][k]
             for j in range(n):
                 C[i][j] = C[i][j] - factor * C[k][j]
