@@ -30,7 +30,7 @@ if '1' or '':
 """
 
 
-#Valores, tipos y evaluación
+"""#Valores, tipos y evaluación
 Valores = [
     #Falsy
     False, None, 0, 0.0, 0j, range(0), "", [], (), {}, set(),
@@ -43,4 +43,46 @@ print("="*35)
 
 for v in Valores:
     print(f'{repr(v):<11} | {type(v).__name__:<8
-    } | {bool(v)}')
+    } | {bool(v)}')"""
+
+
+#! Saber la cantidad de funciones en la versión
+'''import builtins
+
+funciones = [f for f in dir(builtins) if callable(getattr(builtins, f))]
+print(len(funciones))
+import sys
+print(sys.version)'''
+
+
+#todo Practica de funciones:
+
+'''def muestra_estribillo(): 
+    print('Hola soy Itiel') 
+    print('Feliz dia')
+
+print(muestra_estribillo)
+print(type(muestra_estribillo))
+
+def repetir():
+    muestra_estribillo()
+    muestra_estribillo()
+
+repetir()
+'''
+#? Funciones de ejemplos
+
+def saludar():
+    print('Mi nombre es Itiel')
+
+def edad():
+    edad = 17
+    return edad #No se imprime solo la retorna
+
+def presentar():
+    saludar()
+    print(f'Tengo {edad()} años')
+
+saludar()
+edad()
+presentar()
