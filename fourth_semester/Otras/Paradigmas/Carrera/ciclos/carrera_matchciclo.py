@@ -177,20 +177,21 @@ while avanzar == True:
                     print("DATOS DE LOS INSCRITOS\n")
 
                     # Primer corredor
+                    inscritos += 1
                     medallas += 1
                     print(f'Corredor: {nombre}\nEdad: {edad}\nGenero: {genero}\nCategoria: {mostrar}')
                     print(f'Felicidades corredor #{inscritos} Usted esta Inscrito')
-                    
+                   
                     if medallas <= 100:
                         print("Gano medalla\n")
                     else:
                         print("Medallas agotadas\n")
 
                     # Segundo corredor
+                    inscritos += 1
                     medallas += 1
                     print(f'Corredor: {nombre2}\nEdad: {edad2}\nGenero: {genero2}\nCategoria: {mostrar2}')
-                    print(f'Felicidades corredor #{inscritos} Usted esta Inscrito')
-                    
+                    print(f'Felicidades corredor #{inscritos} Usted esta Inscrito') 
                     if medallas <= 100:
                         print("Gano medalla\n")
                     else:
@@ -210,6 +211,7 @@ while avanzar == True:
                         pago = 50
                     case _:
                         pago = 80
+                inscritos += 1
                 medallas += 1
                 print("\n" + "*" * 75)
                 print("DATOS DEL INSCRITO\n")
@@ -227,7 +229,6 @@ while avanzar == True:
             
 
     except ValueError:
-        raise ValueError
         print("Datos inválidos. Verifique la información ingresada.")
         print('Corredor no inscrito')
 

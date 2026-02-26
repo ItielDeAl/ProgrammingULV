@@ -143,34 +143,36 @@ while avanzar == True:
                         categoria2 = input("Ingrese el numero de su categoria: ").strip()
                         #####
                         # ===================== VALIDAR CATEGORIA =====================
-                        
-                        categoria2 = int(categoria2)
+                        try:
+                                categoria2 = int(categoria2)
 
-                        if categoria2 < 1 or categoria2 > 7:
-                            raise ValueError
+                                if categoria2 < 1 or categoria2 > 7:
+                                    raise ValueError
 
-                        if categoria2 == 1:
-                            mostrar2 = "Infantil - Preescolar (2 vueltas) — $50"
-                        elif categoria2 == 2:
-                            mostrar2 = "Primaria 1ro-3ro (3 vueltas) — $50"
-                        elif categoria2 == 3:
-                            mostrar2 = "Primaria 4to-6to (4 vueltas) — $50"
-                        elif categoria2 == 4:
-                            mostrar2 = "Secundaria (7 km) — $80"
-                        elif categoria2 == 5:
-                            mostrar2 = "Preparatoria (7 km) — $80"
-                        elif categoria2 == 6:
-                            mostrar2 = "Universitarios (7 km) — $80"
-                        elif categoria2 == 7:
-                            if 22 <= edad2 <= 39:
-                                mostrar2 = "Empleados/Iglesia: 22-39 (7 km) — $80"
-                            elif 40 <= edad2 <= 49:
-                                mostrar2 = "Empleados/Iglesia: 40-49 (7 km) — $80"
-                            elif edad2 >= 50:
-                                mostrar2 = "Empleados/Iglesia: 50 y + (7 km) — $80"
-                            else:
+                                if categoria2 == 1:
+                                    mostrar2 = "Infantil - Preescolar (2 vueltas) — $50"
+                                elif categoria2 == 2:
+                                    mostrar2 = "Primaria 1ro-3ro (3 vueltas) — $50"
+                                elif categoria2 == 3:
+                                    mostrar2 = "Primaria 4to-6to (4 vueltas) — $50"
+                                elif categoria2 == 4:
+                                    mostrar2 = "Secundaria (7 km) — $80"
+                                elif categoria2 == 5:
+                                    mostrar2 = "Preparatoria (7 km) — $80"
+                                elif categoria2 == 6:
+                                    mostrar2 = "Universitarios (7 km) — $80"
+                                elif categoria2 == 7:
+                                    if 22 <= edad2 <= 39:
+                                        mostrar2 = "Empleados/Iglesia: 22-39 (7 km) — $80"
+                                    elif 40 <= edad2 <= 49:
+                                        mostrar2 = "Empleados/Iglesia: 40-49 (7 km) — $80"
+                                    elif edad2 >= 50:
+                                        mostrar2 = "Empleados/Iglesia: 50 y + (7 km) — $80"
+                                    else:
+                                        raise ValueError
+
+                        except ValueError:
                                 raise ValueError("Error: Categoría no válida")
-                                
                         #####
                     except ValueError as e:
                         raise ValueError
