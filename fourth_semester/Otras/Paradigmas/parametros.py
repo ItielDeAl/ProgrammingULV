@@ -35,23 +35,23 @@ R= Definirla
 
 #! fUNCIONES CON 1 PARAMETRO """"""""""""""""""""""""""""""""""""""""""""""""
 
-def equipos_inscritos(equipo):
+def inscribir_equipo(equipo: str):
     print(f'Equipo: {equipo}, Bienvenido')
 
-def salario_horas(horas):
+def calcular_salario(horas: int | float):
     print(f'Su pago es: ${horas*75}')
 
-def calificacion_materia(calificacion):
+def asignar_calificacion(calificacion: int | float):
     print(f'Su calificación de Paradigmas es: {calificacion}')
 
 #? Funciones con dos parametros =======================================================
-def compra_carro(nombre, auto):
+def comprar_auto(nombre: str, auto: str):
     print(f'Felicidades {nombre}, por adquirir el {auto}.')
 
-def materia_promedio(nombremateria, calificacion):
+def procesar_promedio(nombremateria: str, calificacion: str):
     print(f'Su calificación de {nombremateria} es: {calificacion}')
 
-def presentar_alumno(nombre, apellido):
+def presentar_alumno(nombre: str, apellido: str):
     print(f'Alumno presente: {nombre} {apellido}')
 
 
@@ -77,26 +77,26 @@ calificacion_obtenida = 8.7
 
 print('='*75)
 print('1 parametro\n')
-equipos_inscritos("Real Madrid")
-salario_horas(30)
-calificacion_materia(9.5)
+inscribir_equipo("Real Madrid")
+calcular_salario(30)
+asignar_calificacion(9.5)
 
 
 print('*'*75)
 print('2 parametros\n')
-compra_carro('Itiel Alvarez', 'Duster Orox')
-materia_promedio('Paradigmas', 6.5)
+comprar_auto('Itiel Alvarez', 'Duster Orox')
+procesar_promedio('Paradigmas', 6.5)
 presentar_alumno('Itiel', 'Alvarez')
 
 
 print('-'*75)
 print('Función de orden superior\n')
-ejecutar_equipo(equipos_inscritos)
-ejecutar_salario(salario_horas)
-ejecutar_calificacion(calificacion_materia)
+ejecutar_equipo(inscribir_equipo)
+ejecutar_salario(calcular_salario)
+ejecutar_calificacion(asignar_calificacion)
 
 print('+'*75)
 print('Variable como argumento\n')
-equipos_inscritos(equipo_a_incribir)
-salario_horas(horas_trabajadas)
-calificacion_materia(calificacion_obtenida)
+inscribir_equipo(equipo_a_incribir)
+calcular_salario(horas_trabajadas)
+asignar_calificacion(calificacion_obtenida)
