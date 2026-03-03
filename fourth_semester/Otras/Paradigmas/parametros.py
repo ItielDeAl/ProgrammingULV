@@ -33,7 +33,7 @@ R= Si
 R= Definirla
 '''
 
-#! fUNCIONES CON 1 PARAMETRO """"""""""""""""""""""""""""""""""""""""""""""""
+'''#! fUNCIONES CON 1 PARAMETRO """"""""""""""""""""""""""""""""""""""""""""""""
 
 def inscribir_equipo(equipo: str):
     print(f'Equipo: {equipo}, Bienvenido')
@@ -99,4 +99,59 @@ print('+'*75)
 print('Variable como argumento\n')
 inscribir_equipo(equipo_a_incribir)
 calcular_salario(horas_trabajadas)
-asignar_calificacion(calificacion_obtenida)
+asignar_calificacion(calificacion_obtenida)'''
+
+
+
+#* PRACTICAS CON RETURN
+def saludar_p(nombre):
+    print(f'HOLA {nombre}')
+
+def saludar_r(nombre):
+    return f'HOLA {nombre}'
+
+nombre_p = saludar_p("Itiel")
+nombre_r = saludar_r("Itiel")
+
+
+print(nombre_p)
+print(type(nombre_p))
+
+print(nombre_r)
+print(type(nombre_r))
+
+print('+'*50)
+
+def calcular_salario_p(horas: int | float):
+    print(f'Su pago es: ${horas*75}')
+
+def calcular_salario_r(horas: int | float):
+    return f'Su pago es: ${horas*75}'
+
+salario_p = calcular_salario_p(5)
+salario_r = calcular_salario_r(5)
+
+print(salario_p)
+print(type(salario_p))
+
+print(salario_r)
+print(type(salario_r))
+
+print('+'*50)
+
+
+def presentar_alumno_p(nombre: str, apellido: str):
+    print(f'Alumno presente: {nombre} {apellido}')
+
+def presentar_alumno_r(nombre: str, apellido: str):
+    return f'Alumno presente: {nombre} {apellido}'
+
+alumno_p = presentar_alumno_p('Itiel', 'Alvarez')
+alumno_r = presentar_alumno_r('Itiel', 'Alvarez')
+
+print(alumno_p)
+print(type(alumno_p))
+
+print(alumno_r)
+print(type(alumno_r))
+print('+'*50)
