@@ -1,17 +1,17 @@
 
-def saludo():
+def saludar():
     mensaje = "Hola, mundo"  # Variable local
     print(mensaje)
 
-saludo()
+saludar()
 # print(mensaje) Error: no existe fuera de la función
 
 
-def suma(a, b):
+def sumar(a, b):
     resultado = a + b  # Variable local
     return resultado
 
-print(suma(3, 4))
+print(sumar(3, 4))
 
 
 def contador():
