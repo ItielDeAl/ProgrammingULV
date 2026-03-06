@@ -4,14 +4,14 @@ def saludar():
     print(mensaje)
 
 saludar()
-# print(mensaje) Error: no existe fuera de la función
+print(mensaje) #Error: no existe fuera de la función
 
 
 def sumar(a, b):
     resultado = a + b  # Variable local
     return resultado
 
-print(sumar(3, 4))
+print(resultado)
 
 
 def contador():
@@ -20,3 +20,4 @@ def contador():
     print(numero)
 
 contador()
+print(numero) 

@@ -15,6 +15,10 @@ def aumentar():
 
 aumentar()
 print(contador)
+aumentar()
+print(contador)
+aumentar()
+print(contador)
 
 
 
@@ -22,6 +26,7 @@ mensaje = "Python"
 
 def cambiar():
     global mensaje
+    print(x) 
     mensaje = "Programación en Python"
 
 cambiar()
