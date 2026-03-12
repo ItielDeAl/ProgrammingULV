@@ -38,6 +38,18 @@ app.post("/seguir", async (req,res)=>{
     res.json({mensaje:"Ahora sigues a este usuario"});
 });
 
+//MOSTRAR USUARIOS
+app.get("/usuarios", async (req, res)=>{
+    const db = await createDB();
+    const usuario = db.collection("usuarios");
+
+    const lista = await usuario.find().toArray();
+
+    res.status(200).json(lista);
+
+});
+
+
 // DEJAR DE SEGUIR
 app.delete("/seguir", async (req,res)=>{
 
@@ -53,38 +65,22 @@ app.delete("/seguir", async (req,res)=>{
     res.json({mensaje:"Dejaste de seguir al usuario"});
 });
 
-// ENVIAR MENSAJE (embedding)
-app.post("/mensaje", async (req,res)=>{
+
+//MOSTRAR PERSONAS A LAS QUE SIGO
+app.get("/seguir/:id", async (req, res)=>{
 
     const db = await createDB();
+    const id = req.params.id;
 
-    const {remitente, receptor, texto, adjuntos} = req.body;
+    const usuario = await db.collection("usuarios").findOne({
+        _id: new ObjectId(id)
+    });
 
-    const mensaje = {
-        remitente: new ObjectId(remitente),
-        receptor: new ObjectId(receptor),
-        texto,
-        adjuntos,
-        fecha: new Date()
-    }
-
-    const resultado = await db.collection("mensajes").insertOne(mensaje);
-
-    res.json(resultado);
-});
-
-// MENSAJES RECIBIDOS
-app.get("/mensajes/:id", async (req,res)=>{
-
-    const db = await createDB();
-
-    const usuarioId = req.params.id;
-
-    const mensajes = await db.collection("mensajes")
-        .find({receptor: new ObjectId(usuarioId)})
+    const resultado = await db.collection("usuarios")
+        .find({ _id: { $in: usuario.siguiendo } })
         .toArray();
 
-    res.json(mensajes);
-});
+    res.json(resultado);
 
+});
 export default app;
