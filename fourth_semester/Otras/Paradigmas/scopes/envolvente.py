@@ -1,15 +1,20 @@
 def externa():
-    x = 20  # Variable envolvente
+
+    #x = 20  # Variable envolvente
 
     def interna():
-        print(x)  # Accede a la variable de externa
+        """Necesita la variable envolvente para trabajar"""
+        print(x)
 
-    interna()
+    return interna
 
-externa()
+
+funcion = externa()
+print(funcion.__doc__)
 
 
 def operacion():
+    """La funcion anidada duplica elvalor que tenemos de nuestra variable"""
     valor = 5
 
     def duplicar():
@@ -17,11 +22,17 @@ def operacion():
 
     print(duplicar())
 
-operacion()
+print(operacion.__doc__)
 
 
 #! nonlocal permite modificar la variable del alcance envolvente.
 def contador():
+    """
+    Aumento de variables
+
+    Cada vez que mandemos a llamar la función anidada 
+    esta aumentara nuestra variable
+    """
     numero = 0
 
     def incrementar():
@@ -32,4 +43,4 @@ def contador():
     incrementar()
     incrementar()
 
-contador()
+print(contador.__doc__)
