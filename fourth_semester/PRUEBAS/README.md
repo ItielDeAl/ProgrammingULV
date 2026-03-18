@@ -13,5 +13,5 @@ Para ello se creó una colección con **5,000,000 documentos** y se realizaron c
 <h2>Evidencia de la inscerción de datos</h2>
 
 <p align="center">
-  <img src="/src/routes/scripts_imagenes/inserción.png" width="700">
+  <img src="/inserción.png" width="700">
 </p>

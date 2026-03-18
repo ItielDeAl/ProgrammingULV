@@ -21,8 +21,9 @@ for (let i = 1; i <= total; i++) {
             Math.floor(Math.random() * 12),
             Math.floor(Math.random() * 28)
         )
-    });
+    })
 
+    
     if (docs.length === lote) {
 
         db.Usuarios.insertMany(docs);
