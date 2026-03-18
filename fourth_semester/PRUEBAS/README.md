@@ -24,7 +24,7 @@ Campos utilizados:
 - seguidores
 - pais
 - edad
-- bi
+- bio
 
 # Indices creados
 Con los siguientes indices se realizaron las pruebas con explain("executionStats") para realizar el analisis y comparación de los tiempos, las evidencias ellos se encuentran al final de el documento
