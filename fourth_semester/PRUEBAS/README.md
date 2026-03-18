@@ -84,7 +84,7 @@ Indice Compuesto
 
 <td>
 
-<img src="index2.png" width="400">
+<img src="Index2.png" width="400">
 
 <p align="center">Consulta con índice</p>
 
