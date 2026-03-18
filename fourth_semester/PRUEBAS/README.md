@@ -55,7 +55,7 @@ Indice Simple
 <tr>
 <td>
 
-<img src="/1.png" width="400">
+<img src="1.png" width="400">
 
 <p align="center">Consulta sin índice</p>
 
@@ -63,7 +63,7 @@ Indice Simple
 
 <td>
 
-<img src="/index1.png" width="400">
+<img src="index1.png" width="400">
 
 <p align="center">Consulta con índice</p>
 
@@ -76,7 +76,7 @@ Indice Compuesto
 <tr>
 <td>
 
-<img src="/2.png" width="400">
+<img src="2.png" width="400">
 
 <p align="center">Consulta sin índice</p>
 
@@ -84,7 +84,7 @@ Indice Compuesto
 
 <td>
 
-<img src="/index2.png" width="400">
+<img src="index2.png" width="400">
 
 <p align="center">Consulta con índice</p>
 
@@ -97,7 +97,7 @@ Indice Busqueda de texto
 <tr>
 <td>
 
-<img src="/3.png" width="400">
+<img src="3.png" width="400">
 
 <p align="center">Consulta con índice</p>
 
@@ -105,7 +105,7 @@ Indice Busqueda de texto
 
 <td>
 
-<img src="/index3.png" width="400">
+<img src="index3.png" width="400">
 
 <p align="center">Consulta con índice</p>
 
@@ -116,13 +116,13 @@ Indice Busqueda de texto
 ## Prueba en postman
 Indice Simple
 <p align="center">
-  <img src="/post1.png" width="400">
+  <img src="post1.png" width="400">
 </p>
 Indice Compuesto
 <p align="center">
-  <img src="/post2.png" width="400">
+  <img src="post2.png" width="400">
 </p>
 Indice Busqueda de texto
 <p align="center">
-  <img src="/post3.png" width="400">
+  <img src="post3.png" width="400">
 </p>
