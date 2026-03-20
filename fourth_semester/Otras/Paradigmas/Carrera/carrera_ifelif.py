@@ -91,6 +91,8 @@ def asignar_medalla():
         print("Gano medalla.")
     else:
         print("Medallas agotadas.")
+    print(f"{"~"*30} \n")
+
 # ===================== CERRAR EL BUCLE =====================
 
 def cerrar_programa():

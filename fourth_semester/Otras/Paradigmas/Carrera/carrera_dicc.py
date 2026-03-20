@@ -112,13 +112,15 @@ def mostrar_inscrito(nombre: str, edad: int, genero: str, categoria_texto: str, 
 
 # ===================== CONTROL DE MEDALLAS =====================
 def asignar_medalla():
+    """Actualiza las cantidad de medallas"""
     global medallas
     medallas += 1
 
     if medallas <= 100:
-        return f"Gano medalla."
+        print("Gano medalla.")
     else:
-        return f"Medallas agotadas."
+        print("Medallas agotadas.")
+    print(f"{"~"*30} \n")
 
 # ===================== CERRAR EL BUCLE =====================
 
