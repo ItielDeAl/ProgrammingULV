@@ -99,16 +99,16 @@ Y entramos con el usuario autenticado desde la shell:
 *mongosh --tls --host localhost --tlsCAFile C:\ca.pem -u usuario -p contraseña --authenticationDatabase namebd*
 
 ### Conexión a mongo compas
--> New Connection
-    -> Authentication
-        -> Username = usuario
-        -> Password = contraseña
-        -> Authentication Database = namebd
-    -> TLS/SSL
-        -> Certificate Authority (.pem)
-            -> Select a file... = ruta del archivo.pem
-            -> Automaticamente pasa SSL/TLS Connection de default a On.
--> Save & Connect
+- New Connection
+  - Authentication
+    - Username = usuario
+    - Password = contraseña
+    - Authentication Database = namebd
+  - TLS/SSL
+    - Certificate Authority (.pem)
+      - Select a file... = ruta del archivo.pem
+      - Automáticamente pasa SSL/TLS Connection de default a On.
+- Save & Connect
 
 Mongo se conecta correctamente y muestra las Bases de datos disponibles.
 
