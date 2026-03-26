@@ -2,7 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import { connectDB } from "./db.js";
 
-import usuariosRoutes from "./routes/usuarios.routes.js";
+import usuarioRoutes from "./routes/usuarios.routes.js";
 
 dotenv.config();
 
@@ -14,7 +14,7 @@ app.use(express.json());
 app.get("/health", (req, res) => res.json({ ok: true, service: "trace-api-mongo" }));
 
 // Rutas
-app.use("/api/usuarios", usuariosRoutes);
+app.use("/api/usuarios", usuarioRoutes);
 
 // Manejo de errores
 app.use((err, req, res, next) => {
