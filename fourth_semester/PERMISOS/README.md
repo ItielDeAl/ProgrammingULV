@@ -111,3 +111,6 @@ Y entramos con el usuario autenticado desde la shell:
 -> Save & Connect
 
 Mongo se conecta correctamente y muestra las Bases de datos disponibles.
+
+## Problemas encontrados
+- No se lograba conectar a mongo sh con autenticación y ssl, pero esto se debia a que necesitaba un usuario que no habiamos creado, por ello se tubo que desabilitar para crear al nuevo usuario. 
