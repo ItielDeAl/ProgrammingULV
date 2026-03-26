@@ -28,7 +28,7 @@ para hacer las pruebas creamos a dos usuarios uno de solo lectura, y otro de lec
 <p align="center">Solo lectura</p>
 
 <img src="evidencias/read.1.png" width="400">
-
+<img src="evidencias/read.2.png" width="400">
 
 </td>
 
