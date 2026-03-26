@@ -28,6 +28,9 @@ para hacer las pruebas creamos a dos usuarios uno de solo lectura, y otro de lec
 <p align="center">Solo lectura</p>
 
 <img src="evidencias/read.1.png" width="400">
+<p align="center">Solo lectura</p>
+<p>Al ejecutar comandos de insertar nos avisará que no se puede realizar la acción por que no tenemos permisos</p>
+
 <img src="evidencias/read.2.png" width="400">
 
 </td>
