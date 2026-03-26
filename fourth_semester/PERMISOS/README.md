@@ -28,7 +28,7 @@ para hacer las pruebas creamos a dos usuarios uno de solo lectura, y otro de lec
 <p align="center">Solo lectura</p>
 
 <img src="evidencias/read.1.png" width="400">
-<p align="center">Solo lectura</p>
+
 <p>Al ejecutar comandos de insertar nos avisará que no se puede realizar la acción por que no tenemos permisos</p>
 
 <img src="evidencias/read.2.png" width="400">
@@ -37,51 +37,12 @@ para hacer las pruebas creamos a dos usuarios uno de solo lectura, y otro de lec
 
 <td>
 
-<img src="index1.png" width="400">
-
 <p align="center">Lectura y escritura</p>
+<img src="evidencias/write.1.png" width="400">
 
-</td>
-</tr>
-</table>
+<p>Al realizar comandos de escritura, los realiza y nos da la confirmaciíon con el id del documento, por que este usuario tiene ambos permisos</p>
 
-Indice Compuesto
-<table>
-<tr>
-<td>
-
-<img src="2.png" width="400">
-
-<p align="center">Consulta sin índice</p>
-
-</td>
-
-<td>
-
-<img src="Index2.png" width="400">
-
-<p align="center">Consulta con índice</p>
-
-</td>
-</tr>
-</table>
-
-Indice Busqueda de texto
-<table>
-<tr>
-<td>
-
-<img src="3.png" width="400">
-
-<p align="center">Consulta con índice</p>
-
-</td>
-
-<td>
-
-<img src="index3.png" width="400">
-
-<p align="center">Consulta con índice</p>
+<img src="evidencias/write.2.png" width="400">
 
 </td>
 </tr>
