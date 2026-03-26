@@ -114,3 +114,7 @@ Mongo se conecta correctamente y muestra las Bases de datos disponibles.
 
 ## Problemas encontrados
 - No se lograba conectar a mongo sh con autenticación y ssl, pero esto se debia a que necesitaba un usuario que no habiamos creado, por ello se tubo que desabilitar para crear al nuevo usuario. 
+
+
+## Importancia de la seguridad en bases datos
+En las practicas, no es importante el tener seguridad, ya que la mayoria de las veces los datos son ficticios, y con fines educativos, asi que a nadie le interesa el atacar la información dentro de la bd. Cuando iniciemos con proyectos reales, aun que no sean muy grandes es necesario tener seguridad en todo, por ejemplo, al estar agregando colecciones a mi bd, no es necesario exponer la función de eliminar mi base de datos al usuario, por ello se debe de terner un usuario a parte y eso es en lo minimo, la autenticación nos ayuda para el momento en el que quieran entrar a la bd, no les sea tan secillo y asi poder guardar nuestra información ya sea de ataques o de nosotros mismos con errores humanos.
