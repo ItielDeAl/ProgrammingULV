@@ -144,7 +144,7 @@ def mostrar_recta():
 
     tk.Button(frame_content, text="Calcular", command=calcular).pack()
 
-# ---------------- PLANO ----------------
+# ---------------- PLANO 3D ----------------
 
 def mostrar_plano():
     limpiar()
@@ -156,6 +156,9 @@ def mostrar_plano():
         e.pack()
         entries.append(e)
 
+    frame_grafica = tk.Frame(frame_content)
+    frame_grafica.pack()
+
     lbl = tk.Label(frame_content, text="")
     lbl.pack()
 
@@ -166,6 +169,30 @@ def mostrar_plano():
                 datos += list(map(float, e.get().replace(" ","").split(",")))
 
             A,B,C,D = ecuacion_plano_calc(datos)
+
+            for w in frame_grafica.winfo_children():
+                w.destroy()
+
+            fig = plt.figure(figsize=(4,3))
+            ax = fig.add_subplot(111, projection='3d')
+
+            xx, yy = np.meshgrid(range(-5,6), range(-5,6))
+
+            if C != 0:
+                zz = (-A*xx - B*yy - D)/C
+                ax.plot_surface(xx, yy, zz, alpha=0.5)
+            else:
+                zz = np.zeros_like(xx)
+                ax.plot_surface(xx, yy, zz, alpha=0.5)
+
+            x1,y1,z1,x2,y2,z2,x3,y3,z3 = datos
+            ax.scatter([x1,x2,x3],[y1,y2,y3],[z1,z2,z3])
+
+            ax.set_title("Plano 3D")
+
+            canvas = FigureCanvasTkAgg(fig, master=frame_grafica)
+            canvas.draw()
+            canvas.get_tk_widget().pack()
 
             lbl.config(text=f"{A}x + {B}y + {C}z + {D} = 0")
 
