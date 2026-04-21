@@ -1,3 +1,5 @@
+import datos
+
 # ===================== SOLICITAR DATOS =====================
 def pedir_datos():
     """
@@ -77,10 +79,9 @@ def mostrar_inscrito(nombre: str, edad: int, genero: str, categoria_texto: str, 
 # ===================== CONTROL DE MEDALLAS =====================
 def asignar_medalla():
     """Actualiza las cantidad de medallas"""
-    global medallas
-    medallas += 1
+    datos.medallas += 1
 
-    if medallas <= 100:
+    if datos.medallas <= 100:
         print("Gano medalla.")
     else:
         print("Medallas agotadas.")
@@ -91,93 +92,47 @@ def asignar_medalla():
 def cerrar_programa():
     """Por medio de un bucle maneja el error para cerrar el programa"""
 
-    global avanzar
-
     continuar = input(f'¿Desea continuar inscribiendo? (Y/N), {"=" * 75}\n').upper()
     if continuar == 'N':
-        avanzar = False
+        datos.avanzar = False
     elif continuar == 'Y':
-        avanzar = True
+        datos.avanzar = True
     else:
         print('Ingrese una opción valida')
         print("=" * 75)
         cerrar_programa()
 
 
-# ===================== MENUS =====================
-menu_comp = """
-CATEGORIAS DISPONIBLES
-
-1. Infantil - Preescolar (2 vueltas) — $50
-2. Primaria 1ro-3ro (3 vueltas) — $50
-3. Primaria 4to-6to (4 vueltas) — $50
-4. Secundaria (7 km) — $80
-5. Preparatoria (7 km) — $80
-6. Universitarios (7 km) — $80
-7. Empleados/Iglesia:
-   22-39 (7 km) — $80
-   40-49 (7 km) — $80
-   50 y + (7 km) — $80
-"""
-menu_kids = """
-CATEGORIAS DE PROMOCIÓN DISPONIBLES 
-
-1. Infantil - Preescolar (2 vueltas) — $50
-2. Primaria 1ro-3ro (3 vueltas) — $50
-3. Primaria 4to-6to (4 vueltas) — $50
-"""
-menu_adultos = """
-CATEGORIAS DE PROMOCIÓN DISPONIBLES
-
-4. Secundaria (7 km) — $80
-5. Preparatoria (7 km) — $80
-6. Universitarios (7 km) — $80
-7. Empleados/Iglesia:
-   22-39 (7 km) — $80
-   40-49 (7 km) — $80
-   50 y + (7 km) — $80
-"""
-
-# ===================== VARIABLES =====================
-avanzar = True
-medallas = 99
-pago = 0
-
-
 # ===================== MODULO INSCRIPCION INDIVIDUAL =====================
 def inscripcion_individual(nombre, edad, genero, categoria, categoria_texto):
-    global pago
-
     match categoria:
         case 1 | 2 | 3:
-            pago = 50
+            datos.pago = 50
         case _:
-            pago = 80
+            datos.pago = 80
 
     print("\n" + "*" * 75)
     print("DATOS DEL INSCRITO\n")
 
-    mostrar_inscrito(nombre, edad, genero, categoria_texto, medallas)
+    mostrar_inscrito(nombre, edad, genero, categoria_texto, datos.medallas)
 
 
 # ===================== MODULO INSCRIPCION PAREJA =====================
 def inscripcion_pareja(nombre, edad, genero, categoria, categoria_texto):
-    global pago
-
     match categoria:
         case 1 | 2 | 3:
-            pago = 80
+            datos.pago = 80
         case _:
-            pago = 150
+            datos.pago = 150
 
     print("\nDatos del 2do Corredor")
     nombre2, edad2, genero2 = pedir_datos()
 
     match categoria:
         case 1 | 2 | 3:
-            print(menu_kids)
+            print(datos.menu_kids)
         case _:
-            print(menu_adultos)
+            print(datos.menu_adultos)
 
     categoria2 = int(input("Ingrese el numero de su categoria: ").strip())
     categoria_texto2 = list_categoria(categoria2, edad2)
@@ -185,20 +140,18 @@ def inscripcion_pareja(nombre, edad, genero, categoria, categoria_texto):
     print("\n" + "*" * 75)
     print("DATOS DE LOS INSCRITOS\n")
 
-    mostrar_inscrito(nombre, edad, genero, categoria_texto, medallas)
-    mostrar_inscrito(nombre2, edad2, genero2, categoria_texto2, medallas)
+    mostrar_inscrito(nombre, edad, genero, categoria_texto, datos.medallas)
+    mostrar_inscrito(nombre2, edad2, genero2, categoria_texto2, datos.medallas)
 
     print("=" * 75)
 
 
 # ===================== MODULO PRINCIPAL DE PROCESO =====================
 def procesar_inscripcion():
-    global pago
-
     nombre, edad, genero = pedir_datos()
 
     print("=" * 75)
-    print(menu_comp)
+    print(datos.menu_comp)
     print("=" * 75)
 
     categoria = int(input("Ingrese el numero de su categoria: ").strip())
@@ -215,26 +168,5 @@ def procesar_inscripcion():
             print("Seleccione una inscripción válida")
 
     print("=" * 75)
-    print(f'Favor de pasar a pagar en el edificio C la cantidad de ${pago} pesos')
+    print(f'Favor de pasar a pagar en el edificio C la cantidad de ${datos.pago} pesos')
     print("=" * 75)
-
-
-# ===================== PROGRAMA PRINCIPAL =====================
-def main():
-    global avanzar
-
-    while avanzar:
-        try:
-            procesar_inscripcion()
-        except ValueError:
-            print("Datos inválidos. Verifique la información ingresada.")
-            print('Corredor no inscrito')
-            print("\n" + "-" * 75)
-
-        cerrar_programa()
-
-    print('Gracias por participar')
-
-
-# ===================== EJECUCION =====================
-main()
