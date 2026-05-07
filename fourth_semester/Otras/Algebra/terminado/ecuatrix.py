@@ -5,6 +5,19 @@ import numpy as np
 from matplotlib.figure import Figure
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 
+import os
+import sys
+
+
+# ===== FUNCIÓN PARA CARGAR RECURSOS EN EL .EXE =====
+def resource_path(relative_path):
+    try:
+        base_path = sys._MEIPASS
+    except Exception:
+        base_path = os.path.abspath(".")
+
+    return os.path.join(base_path, relative_path)
+
 
 class App:
     def __init__(self, root):
@@ -28,7 +41,15 @@ class App:
         self.bottom_menu.pack(side="bottom", fill="x")
 
         # ===== BOTONES =====
-        opciones = ["Inicio","Gauss-Jordan", "Área", "Perímetro", "Ecuación de la recta", "Ecuación del plano","Salir"]
+        opciones = [
+            "Inicio",
+            "Gauss-Jordan",
+            "Área",
+            "Perímetro",
+            "Ecuación de la recta",
+            "Ecuación del plano",
+            "Salir"
+        ]
 
         ctk.set_appearance_mode("dark")
 
@@ -43,9 +64,15 @@ class App:
             )
             boton.pack(in_=self.top_menu, fill="x", pady=10, padx=22)
 
-        img = Image.open("letras.png").resize((200, 200))
+        # ===== IMAGEN SIDEBAR =====
+        img = Image.open(resource_path("letras.png")).resize((200, 200))
         self.img_sidebar = ImageTk.PhotoImage(img)
-        tk.Label(self.bottom_menu, image=self.img_sidebar, bg="#094167").pack(pady=10)
+
+        tk.Label(
+            self.bottom_menu,
+            image=self.img_sidebar,
+            bg="#094167"
+        ).pack(pady=10)
 
         self.vista_inicio()
 
@@ -54,115 +81,27 @@ class App:
         for widget in self.content_frame.winfo_children():
             widget.destroy()
 
-    # ===== LOG =====
-    def log(self, texto):
-        self.txt_pasos.insert(tk.END, texto + "\n")
-        self.txt_pasos.see(tk.END)
-
-    def imprimir_matriz_gui(self, M):
-        for fila in M:
-            self.log(" ".join(f"{x:8.2f}" for x in fila))
-        self.log("-" * 50)
-
-    # ===== GAUSS-JORDAN =====
-    def gauss_jordan(self, A, B):
-        C = [A[i] + B[i] for i in range(len(A))]
-        m = len(C)
-        n = len(C[0])
-
-        for k in range(m):
-            pivote = C[k][k]
-            if pivote == 0:
-                raise ValueError("Pivote cero")
-
-            for j in range(n):
-                C[k][j] /= pivote
-
-            for i in range(m):
-                if i != k:
-                    factor = C[i][k]
-                    for j in range(n):
-                        C[i][j] -= factor * C[k][j]
-
-            self.log(f"Paso {k+1}")
-            self.imprimir_matriz_gui(C)
-
-        return [C[i][-1] for i in range(m)]
-
-    # ===== GRAFICAR =====
-    def graficar(self, A, B):
-        self.fig.clear()
-        m, n = len(A), len(A[0])
-
-        sol_pt = None
-        try:
-            sol_pt = np.linalg.solve(A, B).flatten()
-        except:
-            pass
-
-        if m == 2:
-            ax = self.fig.add_subplot(111, facecolor='#ecf0f1')
-            x = np.linspace(-10, 10, 100)
-
-            for i in range(2):
-                if A[i][1] != 0:
-                    y = (B[i][0] - A[i][0]*x)/A[i][1]
-                    ax.plot(x, y, label=f'Ecuación {i+1}')
-
-            if sol_pt is not None:
-                ax.scatter(sol_pt[0], sol_pt[1], color='#ff3f34',
-                           label='Punto Solución')
-                ax.text(sol_pt[0], sol_pt[1],
-                        f'({sol_pt[0]:.2f}, {sol_pt[1]:.2f})',
-                        color='black')
-
-            ax.set_xlabel("Eje X", color="black")
-            ax.set_ylabel("Eje Y", color="black")
-            ax.grid(True, color='black')
-            ax.legend(facecolor='white', edgecolor='black', labelcolor='black')
-
-        elif m == 3:
-            ax = self.fig.add_subplot(111, projection='3d', facecolor='#ecf0f1')
-
-            x, y = np.meshgrid(np.linspace(-5,5,10), np.linspace(-5,5,10))
-
-            for i in range(3):
-                if A[i][2] != 0:
-                    z = (B[i][0] - A[i][0]*x - A[i][1]*y)/A[i][2]
-                    ax.plot_surface(x, y, z, alpha=0.4)
-
-            if sol_pt is not None:
-                ax.scatter(sol_pt[0], sol_pt[1], sol_pt[2],
-                           color='#ff3f34',
-                           label='Punto Solución')
-                ax.text(sol_pt[0], sol_pt[1], sol_pt[2],
-                        f'({sol_pt[0]:.2f}, {sol_pt[1]:.2f}, {sol_pt[2]:.2f})',
-                        color='black')
-
-            ax.set_xlabel("Eje X", color="black")
-            ax.set_ylabel("Eje Y", color="black")
-            ax.set_zlabel("Eje Z", color="black")
-
-            ax.xaxis._axinfo["grid"]['color'] = (0,0,0,1)
-            ax.yaxis._axinfo["grid"]['color'] = (0,0,0,1)
-            ax.zaxis._axinfo["grid"]['color'] = (0,0,0,1)
-
-            ax.legend(facecolor='#ecf0f1', edgecolor='#ecf0f1', labelcolor='black')
-
-        self.canvas.draw()
-
-    # ===== INICIO =====
+    # ===== VISTA INICIO =====
     def vista_inicio(self):
         self.limpiar_pantalla()
 
-        tk.Label(self.content_frame, text="Bienvenido a Ecuatrix",
-                 font=("Courier New", 40, "bold"),
-                 bg="#ecf0f1").pack(pady=20)
+        tk.Label(
+            self.content_frame,
+            text="Bienvenido a Ecuatrix",
+            font=("Courier New", 40, "bold"),
+            bg="#ecf0f1"
+        ).pack(pady=20)
 
-        img = Image.open("Logo.png").resize((500, 500))
+        # ===== LOGO =====
+        img = Image.open(resource_path("Logo.png")).resize((500, 500))
         img_tk = ImageTk.PhotoImage(img)
 
-        lbl = tk.Label(self.content_frame, image=img_tk, bg="#ecf0f1")
+        lbl = tk.Label(
+            self.content_frame,
+            image=img_tk,
+            bg="#ecf0f1"
+        )
+
         lbl.image = img_tk
         lbl.pack(pady=30)
 
@@ -180,7 +119,6 @@ class App:
             bg="#ecf0f1",
             fg="gray"
         ).pack(side="bottom", anchor="e", padx=20, pady=10)
-
     # ===== CAMBIO DE VISTA =====
     def cambiar_vista(self, opcion):
         self.limpiar_pantalla()
